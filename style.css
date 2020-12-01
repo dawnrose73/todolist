@@ -70,7 +70,21 @@ form button:hover {
     flex: 1;
 }
 
-.complete-btn, .trash-btn {
+.todo-edit {
+    display: none;
+    flex: 1;
+    outline: 1px solid #ff6f47;
+    border: none;
+    background: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.complete-btn, 
+.trash-btn,
+.edit-btn {
     outline: none;
     border: none;
     font-size: 1rem;
@@ -78,6 +92,7 @@ form button:hover {
     color: #ffffff;
     background: #ff6f47;
     cursor: pointer;
+    width: 48px;
 }
 
 .complete-btn {
@@ -87,6 +102,15 @@ form button:hover {
 .complete-btn:hover {
     background: #ffffff;
     color: #1bc23f;
+}
+
+.edit-btn {
+    background: #f2c541;
+}
+
+.edit-btn:hover {
+    background: #ffffff;
+    color: #f2c541;
 }
 
 .trash-btn:hover {
@@ -100,7 +124,9 @@ form button:hover {
 
 .fa-check,
 .fa-trash,
-.fa-undo {
+.fa-undo,
+.fa-edit,
+.fa-save {
     pointer-events: none;
 }
 
