@@ -22,9 +22,6 @@ function todoListPage() {
         //creating div with todo item
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todo');
-        if (taskStatus === true) {
-            todoDiv.classList.add('completed');
-        };
         //creating li with task text
         const newTodo = document.createElement('li');
         newTodo.innerText = taskInfo;
@@ -42,6 +39,11 @@ function todoListPage() {
         trashButton.classList.add('trash-btn');
         trashButton.addEventListener('click', deleteTask);
         todoDiv.appendChild(trashButton);
+
+        if (taskStatus === true) {
+            todoDiv.classList.add('completed');
+            completedButton.innerHTML = '<i class="fas fa-undo"></i>';
+        };
         //adding item to todolist
         todoList.appendChild(todoDiv);
     }
@@ -66,13 +68,15 @@ function todoListPage() {
     }
 
     function completeTask(event) {
-        console.log(event.target);
+        
         const todo = event.target.parentElement;
         todo.classList.toggle('completed');
         //setting status of task in array todos
         if (todo.classList.contains('completed')) {
+            event.target.innerHTML = '<i class="fas fa-undo"></i>';
             setTaskStatus(true, todo);
         } else {
+            event.target.innerHTML = '<i class="fas fa-check"></i>';
             setTaskStatus(false, todo);
         };
         saveLocalTodos(todos);
